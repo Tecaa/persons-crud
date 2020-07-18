@@ -1,0 +1,13 @@
+{
+    "error": {
+        "form": {
+            "invalid": "Form is invalid. Please, check data you entered."
+        },
+        "input": {
+            "required": "This field is required",
+            "maxlength": "Text exceed character limit of {{p1}}",
+            "minNumber": "Number is lesser than minimum allowed. Minimun {{p1}}",
+            "validateRut": "Not a valid RUT (Ej: 12345678-9)"
+        }
+    }
+}
