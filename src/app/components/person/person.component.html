@@ -1,5 +1,5 @@
 <div class="ui-grid-col-6">
-    <p>Please, set the data of the person</p>
+    <p>Please, set data of the person</p>
 </div>
 <div *ngIf="personFormGroup" [formGroup]="personFormGroup" class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
     <div class="ui-grid-col-12">
@@ -8,7 +8,8 @@
             <input [id]="FORM_RUT" pInputText type="text" [formControlName]="FORM_RUT" maxlength="100" />
             <div class="ui-grid-col-12 ng-invalid-msgs-container" *ngIf="!getControl(FORM_RUT).valid && getControl(FORM_RUT).dirty">
                 <label *ngIf="getControl(FORM_RUT).hasError('required')">{{ 'error.input.required' | translate }}</label>
-                <label *ngIf="getControl(FORM_RUT).hasError('maxlength')">{{ 'error.input.maxlength' | translate:{p1:100} }}</label>
+                <label *ngIf="getControl(FORM_RUT).hasError('maxlength')">{{ 'error.input.maxlength' | translate:{p1:RUT_MAX_LENGTH} }}</label>
+                <label *ngIf="getControl(FORM_RUT).hasError('validateRut')">{{ 'error.input.validateRut' | translate }}</label>
             </div>
         </div>
     </div>
@@ -18,7 +19,7 @@
             <input [id]="FORM_NAME" pInputText type="text" [formControlName]="FORM_NAME" maxlength="100" />
             <div class="ui-grid-col-12 ng-invalid-msgs-container" *ngIf="!getControl(FORM_NAME).valid && getControl(FORM_NAME).dirty">
                 <label *ngIf="getControl(FORM_NAME).hasError('required')">{{ 'error.input.required' | translate }}</label>
-                <label *ngIf="getControl(FORM_NAME).hasError('maxlength')">{{ 'error.input.maxlength' | translate:{p1:100} }}</label>
+                <label *ngIf="getControl(FORM_NAME).hasError('maxlength')">{{ 'error.input.maxlength' | translate:{p1:NAME_MAX_LENGTH} }}</label>
             </div>
         </div>
     </div>
@@ -28,28 +29,33 @@
             <input [id]="FORM_LAST_NAME" pInputText type="text" [formControlName]="FORM_LAST_NAME" maxlength="100" />
             <div class="ui-grid-col-12 ng-invalid-msgs-container" *ngIf="!getControl(FORM_LAST_NAME).valid && getControl(FORM_LAST_NAME).dirty">
                 <label *ngIf="getControl(FORM_LAST_NAME).hasError('required')">{{ 'error.input.required' | translate }}</label>
-                <label *ngIf="getControl(FORM_LAST_NAME).hasError('maxlength')">{{ 'error.input.maxlength' | translate:{p1:100} }}</label>
+                <label *ngIf="getControl(FORM_LAST_NAME).hasError('maxlength')">{{ 'error.input.maxlength' | translate:{p1:LAST_NAME_MAX_LENGTH} }}</label>
             </div>
         </div>
     </div>
     <div class="ui-grid-col-12">
         <div class="form-group">
             <label [for]="FORM_AGE">Age</label>
-            <input [id]="FORM_AGE" pInputText type="text" [formControlName]="FORM_AGE" maxlength="100" />
+            <input [id]="FORM_AGE" pInputText type="number" [formControlName]="FORM_AGE" maxlength="100" />
             <div class="ui-grid-col-12 ng-invalid-msgs-container" *ngIf="!getControl(FORM_AGE).valid && getControl(FORM_AGE).dirty">
                 <label *ngIf="getControl(FORM_AGE).hasError('required')">{{ 'error.input.required' | translate }}</label>
-                <label *ngIf="getControl(FORM_AGE).hasError('maxlength')">{{ 'error.input.maxlength' | translate:{p1:100} }}</label>
+                <label *ngIf="getControl(FORM_AGE).hasError('min')">{{ 'error.input.min' | translate:{p1:AGE_MIN_VALUE} }}</label>
+                <label *ngIf="getControl(FORM_AGE).hasError('max')">{{ 'error.input.max' | translate:{p1:AGE_MAX_VALUE} }}</label>
+                <label *ngIf="getControl(FORM_AGE).hasError('pattern')">{{ 'error.input.age' | translate }}</label>
             </div>
         </div>
     </div>
     <div class="ui-grid-col-12">
         <div class="form-group">
             <label [for]="FORM_ADDRESS">Address</label>
-            <input [id]="FORM_ADDRESS" pInputText type="text" [formControlName]="FORM_ADDRESS" maxlength="100" />
+            <textarea [id]="FORM_ADDRESS" pInputText [formControlName]="FORM_ADDRESS" maxlength="500"></textarea>
             <div class="ui-grid-col-12 ng-invalid-msgs-container" *ngIf="!getControl(FORM_ADDRESS).valid && getControl(FORM_ADDRESS).dirty">
                 <label *ngIf="getControl(FORM_ADDRESS).hasError('required')">{{ 'error.input.required' | translate }}</label>
-                <label *ngIf="getControl(FORM_ADDRESS).hasError('maxlength')">{{ 'error.input.maxlength' | translate:{p1:100} }}</label>
+                <label *ngIf="getControl(FORM_ADDRESS).hasError('maxlength')">{{ 'error.input.maxlength' | translate:{p1:ADDRESS_MAX_LENGTH} }}</label>
             </div>
         </div>
     </div>
 </div>
+
+
+<button pButton type="button" label="Submit" class="ui-button-rounded" (click)="submit()">Submit</button>

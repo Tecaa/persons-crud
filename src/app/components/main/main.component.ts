@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/classes/person';
+import { PersonService } from '../../api/api/person.service';
+import { PersonMapperService } from '../../services/mappers/person-mapper.service';
 
 @Component({
   selector: 'app-main',
@@ -10,27 +12,15 @@ export class MainComponent implements OnInit {
 
 
   public persons: Person[];
-
-  ngOnInit(): void {
-    this.fetchData();
+  constructor(private personService: PersonService, private personMapperService: PersonMapperService){
   }
 
-  fetchData(): any {
-    const p1 = new Person();
-    p1.name = 'Jimmy';
-    p1.lastName = 'Raynor';
-    p1.age = 42;
-    p1.rut = 9810616;
-    p1.vd = '2';
-    p1.address = 'Augustgrad 4112, Korhal';
-    const p2 = new Person();
-    p2.name = 'Sarah';
-    p2.lastName = 'Kerrigan';
-    p2.age = 38;
-    p2.rut = 11832947;
-    p2.vd = '3';
-    p2.address = 'Talematros 243, Shakuras';
-    this.persons = [p1, p2];
-    console.log("persons", this.persons);
+  async ngOnInit(): Promise<void> {
+    await this.fetchData();
+  }
+
+  async fetchData(): Promise<void> {
+    const personsFromDb = await this.personService.personGet().toPromise();
+    this.persons = this.personMapperService.toPersonList(personsFromDb);
   }
 }
