@@ -1,7 +1,8 @@
 {
     "error": {
         "form": {
-            "invalid": "Form is invalid. Please, check data you entered."
+            "invalid": "Form is invalid. Please, check data you entered.",
+            "serverError": "We have a server issue. Please, try again later or contact an administrator."
         },
         "input": {
             "required": "This field is required",

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { MessageService } from 'primeng';
+import { MessageService, ConfirmationService } from 'primeng';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [MessageService]
+  providers: [MessageService, ConfirmationService]
 
 })
 export class AppComponent {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PersonDto } from '../../api/model/personDto';
 import { Person } from 'src/app/classes/person';
+import { NewPersonRequest } from 'src/app/api';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,17 @@ export class PersonMapperService {
     dto.age = person.age;
     dto.address = person.address;
     dto.id = person.id;
+    return dto;
+  }
+
+  public toNewPersonRequest(person: Person): NewPersonRequest {
+    const dto = {} as NewPersonRequest;
+    dto.rut = person.rut;
+    dto.vd = person.vd;
+    dto.name = person.name;
+    dto.lastName = person.lastName;
+    dto.age = person.age;
+    dto.address = person.address;
     return dto;
   }
 

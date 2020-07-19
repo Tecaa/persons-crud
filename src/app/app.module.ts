@@ -18,13 +18,16 @@ import { ApiModule } from './api/api.module';
 import { BASE_PATH } from './api';
 import { environment } from 'src/environments/environment';
 import { MessageModule } from 'primeng/message';
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
- }
+}
 
 @NgModule({
   declarations: [
@@ -44,6 +47,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ApiModule,
     MessageModule,
     BrowserAnimationsModule,
+    ConfirmDialogModule,
+    ToastModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -54,6 +59,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     RutUtils,
     RutValidator,
+    ConfirmationService,
     { provide: BASE_PATH, useValue: environment.apiUrl },
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true }
 

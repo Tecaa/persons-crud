@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl, FormArray } from '@angular/forms';
 import { RutValidator } from 'src/app/validators/rut-validator';
 import { Person } from '../../classes/person';
@@ -10,6 +10,7 @@ import { PersonMapperService } from '../../services/mappers/person-mapper.servic
 import { PersonService } from '../../api/api/person.service';
 import { ComponentMode } from 'src/app/enums/component-mode.enum';
 import { MessageService } from 'primeng/api';
+import { PersonDto } from '../../api/model/personDto';
 
 @Component({
   selector: 'app-person',
@@ -17,8 +18,8 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./person.component.css']
 })
 export class PersonComponent implements OnInit {
-  protected INVALID_FORM_MESSAGE: string;
-  protected SERVER_ERROR_MESSAGE: string;
+  private INVALID_FORM_MESSAGE: string;
+  private SERVER_ERROR_MESSAGE: string;
 
   readonly FORM_RUT: string = 'rut';
   readonly FORM_NAME: string = 'name';
@@ -36,11 +37,13 @@ export class PersonComponent implements OnInit {
 
 
   personFormGroup: FormGroup;
+  public ComponentModeEnum = ComponentMode;
   public componentMode: ComponentMode;
   public errorFetchingData: boolean;
   public invalidForm: boolean;
 
-  protected personId: number;
+  private personId: number;
+  private person: Person;
 
   constructor(private fb: FormBuilder, private messageService: MessageService,
               private translate: TranslateService, private activatedRoute: ActivatedRoute,
@@ -49,17 +52,60 @@ export class PersonComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.activatedRoute.params.subscribe(async params => {
+      const paramId = params.id;
+      this.personId = paramId ? parseInt(paramId, 10) : null;
+
       try {
-        this.componentMode = this.readComponentMode(params.id);
+        this.componentMode = this.readComponentMode(paramId);
       }
       catch {
           this.goOut();
           return;
       }
+
+      await this.fetchData();
       this.buildForm();
       await this.getStrings();
+      this.setData();
     });
   }
+
+  async fetchData(): Promise<void> {
+    if (this.person){
+      return;
+    }
+
+    if (this.componentMode !== ComponentMode.Update){
+      return;
+    }
+
+    const personDto = await this.personService.idGet(this.personId).toPromise()
+      .catch(e => {
+        this.errorFetchingData = true;
+        return this.showServerErrorMessage(e);
+    });
+    if (!personDto.error){
+      this.person = this.personMapperService.toPerson(personDto);
+    }
+    else{
+      this.personFormGroup.disable();
+    }
+  }
+
+  setData(): any {
+    if (!this.person || !this.personFormGroup){
+      return;
+    }
+    const group = {};
+    group[this.FORM_NAME] = this.person.name;
+    group[this.FORM_LAST_NAME] = this.person.lastName;
+    group[this.FORM_RUT] = this.person.rut + '-' + this.person.vd;
+    group[this.FORM_AGE] = this.person.age;
+    group[this.FORM_ADDRESS] = this.person.address;
+
+    this.personFormGroup.patchValue(group);
+  }
+
 
   readComponentMode(id: number): ComponentMode {
     return id ? ComponentMode.Update : ComponentMode.Create;
@@ -71,9 +117,9 @@ export class PersonComponent implements OnInit {
 
 
   private async getStrings(): Promise<void> {
-    this.INVALID_FORM_MESSAGE = await this.translate.get('transaccion.formularioInvalido').toPromise();
-    this.SERVER_ERROR_MESSAGE = await this.translate.get('transaccion.servidorError').toPromise();
-}
+    this.INVALID_FORM_MESSAGE = await this.translate.get('error.form.invalid').toPromise();
+    this.SERVER_ERROR_MESSAGE = await this.translate.get('error.form.serverError').toPromise();
+  }
 
 
   buildForm(): void {
@@ -153,19 +199,13 @@ export class PersonComponent implements OnInit {
 
   buildNewPersonDto(): NewPersonRequest {
     const person = this.gatherData();
-    console.log(person);
-
-    return this.personMapperService.toPersonDto(person);
+    return this.personMapperService.toNewPersonRequest(person);
   }
 
-  buildUpdatePersonDto(): NewPersonRequest {
+  buildUpdatePersonDto(): PersonDto {
     const person = this.gatherData();
-    console.log(person);
-
     return this.personMapperService.toPersonDto(person);
   }
-
-
 
 
   valid(): boolean {
