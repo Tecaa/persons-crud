@@ -58,6 +58,6 @@
         </div>
     </div>
     <div class="ui-grid-col-12">
-        <button icon="pi pi-save" pButton type="button" title="Submit" class="ui-button-rounded" (click)="submit()"></button>
+        <button icon="pi pi-save" pButton type="button" title="Submit" class="ui-button-rounded" (click)="submit()" [disabled]="!this.personFormGroup.valid"></button>
     </div>
 </div>
