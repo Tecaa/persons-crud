@@ -24,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { CardModule, ToolbarModule, InputTextModule, InputTextareaModule, InputNumberModule } from 'primeng';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
@@ -49,6 +50,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     ConfirmDialogModule,
     ToastModule,
+    CardModule,
+    ToolbarModule,
+    InputTextModule,
+    InputTextareaModule,
+    InputNumberModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

@@ -12,3 +12,19 @@
     word-wrap: break-word;
     /* IE */
 }
+
+input.ng-dirty.ng-invalid,
+textarea.ng-dirty.ng-invalid {
+    border: 1px solid #E8473E;
+}
+
+.ng-invalid-msgs-container {
+    label {
+        color: #E8473E;
+        font-size: 12px;
+    }
+}
+
+.pull-right {
+    float: right;
+}

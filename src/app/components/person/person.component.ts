@@ -1,5 +1,5 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, FormControl, FormArray } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { RutValidator } from 'src/app/validators/rut-validator';
 import { Person } from '../../classes/person';
 import { FormUtils } from 'src/app/utils/form.utils';

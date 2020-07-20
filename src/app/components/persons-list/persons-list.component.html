@@ -1,6 +1,9 @@
 <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
 
-<p-table [value]="persons" class="wrap">
+<p-table #dt [value]="persons" class="wrap" [rowHover]="true" [paginator]="true" [rowsPerPageOptions]="[10,25,50]" styleClass="ui-table-persons" [rows]="10" [globalFilterFields]="['rut','name','lastName','age','address']">
+    <ng-template pTemplate="caption">
+        List of Persons
+    </ng-template>
     <ng-template pTemplate="header">
         <tr>
             <th>Rut</th>
@@ -9,6 +12,24 @@
             <th>Age</th>
             <th>Address</th>
             <th>Actions</th>
+        </tr>
+        <tr>
+            <th>
+                <input pInputText type="text" (input)="dt.filter($event.target.value, 'rut', 'contains')" placeholder="Search by rut" class="ui-column-filter">
+            </th>
+            <th>
+                <input pInputText type="text" (input)="dt.filter($event.target.value, 'name', 'contains')" placeholder="Search by name" class="ui-column-filter">
+            </th>
+            <th>
+                <input pInputText type="text" (input)="dt.filter($event.target.value, 'lastName', 'contains')" placeholder="Search by last name" class="ui-column-filter">
+            </th>
+            <th>
+                <input pInputText type="text" (input)="dt.filter($event.target.value, 'age', 'contains')" placeholder="Search by age" class="ui-column-filter">
+            </th>
+            <th>
+                <input pInputText type="text" (input)="dt.filter($event.target.value, 'address', 'contains')" placeholder="Search by address" class="ui-column-filter">
+            </th>
+            <th></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-person>
