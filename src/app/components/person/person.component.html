@@ -74,7 +74,7 @@
     </div>
 
     <p-footer>
-        <div class="ui-grid-row">
+        <div class="ui-grid-row" *ngIf="personFormGroup">
             <div class="ui-grid-col-12">
                 <button icon="pi pi-angle-left" pButton type="button" title="Back" [routerLink]="''" label="Back"></button>
                 <button icon="pi pi-save" pButton type="button" title="Submit" class="pull-right" (click)="submit()" [disabled]="!this.personFormGroup.valid" label="Save"></button>

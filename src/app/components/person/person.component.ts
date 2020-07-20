@@ -166,10 +166,11 @@ export class PersonComponent implements OnInit {
     }
 
     if (response) {
-        this.router.navigate(['..'], {relativeTo: this.activatedRoute.parent});
+      this.messageService.add({severity: 'success', summary: 'Success', detail: 'Person saved.'});
+      this.router.navigate(['..'], {relativeTo: this.activatedRoute.parent});
     }
     else {
-        this.messageService.add({severity: 'error', summary: 'Server error', detail: this.SERVER_ERROR_MESSAGE});
+      this.messageService.add({severity: 'error', summary: 'Server error', detail: this.SERVER_ERROR_MESSAGE});
     }
   }
 

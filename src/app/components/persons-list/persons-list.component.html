@@ -39,9 +39,9 @@
             <td>{{person.lastName}}</td>
             <td>{{person.age}}</td>
             <td>{{person.address}}</td>
-            <td>
-                <button icon="pi pi-pencil" pButton type="button" title="Edit" class="ui-button-rounded" (click)="editRow(person)"></button>
-                <button icon="pi pi-trash" pButton type="button" title="Delete" class="ui-button-rounded" (click)="deleteRow(person)"></button>
+            <td class="align-center">
+                <button icon="pi pi-pencil" pButton type="button" title="Edit" class="ui-button-rounded m-lr-1" (click)="editRow(person)"></button>
+                <button icon="pi pi-trash" pButton type="button" title="Delete" class="ui-button-rounded m-lr-1" (click)="deleteRow(person)"></button>
             </td>
         </tr>
     </ng-template>
