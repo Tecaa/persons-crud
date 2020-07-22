@@ -142,7 +142,7 @@ export class PersonComponent implements OnInit {
     const data = new Person();
     data.name = controls[this.FORM_NAME].value;
     data.lastName = controls[this.FORM_LAST_NAME].value;
-    data.age = controls[this.FORM_AGE].value;
+    data.age = controls[this.FORM_AGE].value || null;
     data.rut = FormUtils.fullRutToInt(controls[this.FORM_RUT].value);
     data.vd = FormUtils.fullRutToVd(controls[this.FORM_RUT].value);
     data.address = controls[this.FORM_ADDRESS].value;

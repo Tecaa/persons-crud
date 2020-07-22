@@ -16,7 +16,7 @@ export interface NewPersonRequest {
     vd?: string;
     name?: string | null;
     lastName?: string | null;
-    age?: number;
+    age?: number | null;
     address?: string | null;
 }
 

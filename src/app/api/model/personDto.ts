@@ -17,7 +17,7 @@ export interface PersonDto {
     vd?: string;
     name?: string | null;
     lastName?: string | null;
-    age?: number;
+    age?: number | null;
     address?: string | null;
 }
 
