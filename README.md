@@ -7,8 +7,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 [X] Title
 [X] Favicon
 [X] Responsive
-[ ] Improve styles
-[ ] Backend validations
+[X] Improve styles
+[X] Backend validations
 [ ] TODO list in code
 [ ] Refactoring
 [ ] Improve readme

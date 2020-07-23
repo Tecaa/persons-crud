@@ -124,6 +124,7 @@ export class PersonComponent implements OnInit {
 
   buildForm(): void {
     const group = {};
+
     group[this.FORM_RUT] = ['', [Validators.required, Validators.maxLength(this.RUT_MAX_LENGTH), RutValidator.validate]];
     group[this.FORM_NAME] = ['', [Validators.required, Validators.maxLength(this.NAME_MAX_LENGTH)]];
     group[this.FORM_LAST_NAME] = ['', [Validators.required, Validators.maxLength(this.LAST_NAME_MAX_LENGTH)]];

@@ -37,3 +37,30 @@ h1 {
     top: 0;
     z-index: 1;
 }
+
+.img-bottom {
+    opacity: 1;
+    transition: opacity .7s;
+}
+
+.img-top {
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 176px;
+    transition: opacity .7s;
+}
+
+.header-wrapper:hover .img-top {
+    opacity: 1;
+}
+
+.header-wrapper:hover .img-bottom {
+    opacity: 0;
+}
+
+.title-container {
+    vertical-align: -webkit-baseline-middle;
+}
