@@ -42,3 +42,27 @@ textarea.ng-dirty.ng-invalid {
     margin-top: 1em;
     margin-bottom: 1em;
 }
+
+body .ui-toolbar {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    border: none;
+}
+
+.ui-button-text {
+    margin-left: 5px;
+}
+
+body .ui-toast .ui-toast-message.ui-toast-message-success {
+    background: #6bcdf7;
+}
+
+body .ui-button.ui-button-rounded {
+    border-radius: 6px;
+}
+
+body .ui-table .ui-table-caption,
+body .ui-table .ui-table-summary,
+body .ui-table .ui-table-thead>tr>th,
+body .ui-toolbar {
+    background-color: white;
+}

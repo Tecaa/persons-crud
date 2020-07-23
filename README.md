@@ -4,14 +4,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## ToDo list
 
-[ ] Title
+[X] Title
 [X] Favicon
-[ ] Responsive
-[ ] Refactoring
+[X] Responsive
 [ ] Improve styles
+[ ] Backend validations
+[ ] TODO list in code
+[ ] Refactoring
 [ ] Improve readme
 [ ] Update repositories
 [ ] Make repositories public
 [ ] Record audios
-[ ] Backend validations
-[ ] TODO list in code
+[ ] Data in production

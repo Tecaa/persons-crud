@@ -1,4 +1,4 @@
-:host ::ng-deep .ui-table-customers {
+:host ::ng-deep .ui-table-persons {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
     .customer-badge {
         border-radius: 2px;
@@ -67,9 +67,8 @@
     }
     .ui-column-filter {
         display: block;
-        input {
-            width: 100%;
-        }
+        width: 100%;
+        text-align: left;
     }
     .ui-table-globalfilter-container {
         float: right;
@@ -88,6 +87,7 @@
         padding: 12px;
         text-align: left;
         font-size: 20px;
+        color: rgb(94, 94, 94);
     }
     .ui-paginator {
         border: 0 none;
@@ -95,28 +95,18 @@
     }
     .ui-table-thead>tr>th {
         border: 0 none;
-        text-align: left;
+        text-align: center;
+        color: rgb(94, 94, 94);
         &.ui-filter-column {
             border-top: 1px solid #c8c8c8;
-        }
-        &:first-child {
-            width: 5em;
-            text-align: center;
-        }
-        &:last-child {
-            width: 8em;
-            text-align: center;
         }
     }
     .ui-table-tbody>tr>td {
         border: 0 none;
         cursor: auto;
-        &:first-child {
-            width: 3em;
-            text-align: center;
-        }
+        color: rgb(94, 94, 94);
+        text-align: left;
         &:last-child {
-            width: 8em;
             text-align: center;
         }
     }
@@ -133,7 +123,7 @@
 
 @media screen and (max-width: 64em) {
      :host ::ng-deep .ui-table {
-        &.ui-table-customers {
+        &.ui-table-persons {
             .ui-table-thead>tr>th,
             .ui-table-tfoot>tr>td {
                 display: none !important;

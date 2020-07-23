@@ -25,6 +25,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { CardModule, ToolbarModule, InputTextModule, InputTextareaModule, InputNumberModule } from 'primeng';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
@@ -36,6 +38,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PersonsListComponent,
     PersonComponent,
     MainComponent,
+    TopbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

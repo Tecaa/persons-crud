@@ -1,9 +1,15 @@
 <p-card styleClass="ui-card-shadow">
     <p-header>
         <div class="ui-grid-row">
-            <div class="ui-grid-col-12">
-                <p *ngIf="componentMode === ComponentModeEnum.Create">Please, set data of the person</p>
-                <p *ngIf="componentMode === ComponentModeEnum.Update">Please, update data of the person</p>
+            <div class="title ui-grid-col-12">
+                <div *ngIf="componentMode === ComponentModeEnum.Create">
+                    <h1>New person</h1>
+                    <h2>Please, set data of the person</h2>
+                </div>
+                <div *ngIf="componentMode === ComponentModeEnum.Update">
+                    <h1>Edit person</h1>
+                    <h2>Please, update data of the person</h2>
+                </div>
             </div>
         </div>
     </p-header>
