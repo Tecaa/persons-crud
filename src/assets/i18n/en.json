@@ -5,12 +5,12 @@
             "serverError": "We have a server issue. Please, try again later or contact an administrator."
         },
         "input": {
-            "required": "This field is required",
-            "maxlength": "Exceeds character limit of {{p1}}",
-            "min": "Number is lesser than minimum allowed. Minimum {{p1}}",
-            "max": "Number is greater than maximum allowed. Maximum {{p1}}",
-            "validateRut": "Not a valid RUT (Ej: 12345678-9)",
-            "age": "Not a valid age"
+            "required": "This field is required. ",
+            "maxlength": "Exceeds character limit of {{p1}}. ",
+            "min": "Number is lesser than minimum allowed. Minimum {{p1}}. ",
+            "max": "Number is greater than maximum allowed. Maximum {{p1}}. ",
+            "validateRut": "Not a valid RUT (Ej: 12345678-9). ",
+            "age": "Not a valid age. "
         }
     }
 }

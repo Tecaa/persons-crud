@@ -19,8 +19,6 @@ import { trigger, state, style, animate, transition} from '@angular/animations';
   ]
 })
 export class MainComponent implements OnInit {
-
-
   public persons: Person[];
   constructor(private personService: PersonService, private personMapperService: PersonMapperService){
   }
