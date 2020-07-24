@@ -1,6 +1,7 @@
 # PersonsCrud
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.11.
+This project is a (https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)[CRUD]
+
 
 ## ToDo list
 
