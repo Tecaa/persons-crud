@@ -3,7 +3,7 @@ import { RutUtils } from '../utils/rut.utils';
 
 export class RutValidator {
     public static validate(formControl: FormControl) {
-        const rutUtils = new RutUtils(); //TODO: refactor
+        const rutUtils = new RutUtils();
 
         if (!formControl.value) {
             return null;

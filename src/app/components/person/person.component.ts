@@ -11,11 +11,23 @@ import { PersonService } from '../../api/api/person.service';
 import { ComponentMode } from 'src/app/enums/component-mode.enum';
 import { MessageService } from 'primeng/api';
 import { PersonDto } from '../../api/model/personDto';
+import { trigger, state, style, animate, transition} from '@angular/animations';
 
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
-  styleUrls: ['./person.component.css']
+  styleUrls: ['./person.component.css'],
+  animations: [
+    trigger('fadein', [
+      
+      state('in', style({opacity: 1})),
+
+      transition(':enter', [
+        style({opacity: 0}),
+        animate(350)
+      ])
+    ])
+  ]
 })
 export class PersonComponent implements OnInit {
   private INVALID_FORM_MESSAGE: string;

@@ -9,10 +9,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 [X] Responsive
 [X] Improve styles
 [X] Backend validations
-[ ] TODO list in code
-[ ] Refactoring
+[X] TODO list in code
+[X] Refactoring
+[X] Data in production
+[X] Update repositories
 [ ] Improve readme
-[ ] Update repositories
 [ ] Make repositories public
 [ ] Record audios
-[ ] Data in production

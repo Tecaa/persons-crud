@@ -64,3 +64,12 @@ h1 {
 .title-container {
     vertical-align: -webkit-baseline-middle;
 }
+
+@media (max-width: 600px) {
+    .title-container {
+        margin-top: 1.5em;
+        h1 {
+            padding-left: 0.5em;
+        }
+    }
+}

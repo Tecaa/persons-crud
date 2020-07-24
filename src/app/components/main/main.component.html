@@ -1,5 +1,7 @@
-<div class="toolbar">
-    <button pButton type="button" title="New" label="New" icon="pi pi-user-plus" [routerLink]="'/person'"></button>
+<div class="container" [@fadein]>
+    <div class="toolbar">
+        <button pButton type="button" title="New" label="New" icon="pi pi-user-plus" [routerLink]="'/person'"></button>
+    </div>
+    <app-persons-list [persons]="persons">
+    </app-persons-list>
 </div>
-<app-persons-list [persons]="persons ">
-</app-persons-list>

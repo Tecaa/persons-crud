@@ -1,6 +1,6 @@
 <p-card styleClass="ui-card-shadow">
     <p-header>
-        <div class="ui-grid-row">
+        <div class="ui-grid-row" [@fadein]>
             <div class="title ui-grid-col-12">
                 <div *ngIf="componentMode === ComponentModeEnum.Create">
                     <h1>New person</h1>
@@ -15,7 +15,7 @@
     </p-header>
 
     <p-message class="ui-grid-row" *ngIf="errorFetchingData" severity="error" text="Data could not be retrieved"></p-message>
-    <div *ngIf="personFormGroup" [formGroup]="personFormGroup" class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
+    <div *ngIf="personFormGroup" [formGroup]="personFormGroup" class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" [@fadein]>
         <div class="ui-grid-row">
             <div class="ui-grid-col-6">
                 <div class="form-group">
