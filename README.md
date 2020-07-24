@@ -6,13 +6,23 @@ This project is a frontend application developed in Angular 9.1. It consist on a
 ## ToDo list
 
 [X] Title
+
 [X] Favicon
+
 [X] Responsive
+
 [X] Improve styles
+
 [X] Backend validations
+
 [X] TODO list in code
+
 [X] Refactoring
+
 [X] Data in production
+
 [X] Update repositories
+
 [X] Make repositories public
+
 [X] Record audios
